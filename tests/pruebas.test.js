@@ -1,5 +1,8 @@
 /* eslint-disable no-undef */
 const {
+    resultadoTipoFuncionExpresadaVar,
+    duplicarConFlecha,
+    sumarMedianteExpresionNombrada,
     devolverPrimerElemento,
     devolverUltimoElemento,
     obtenerLargoDelArray,
@@ -30,6 +33,24 @@ const {
     sumarArray,
     forEach,
     map,
+    filter,
+    sacarUltimoConPop,
+    sacarPrimeroConShift,
+    unirConSeparador,
+    indicePrimero,
+    indiceUltimo,
+    existeConIncludes,
+    subArregloCopia,
+    pegarDosArreglos,
+    aplicarSpliceDesde,
+    invertirEnLugar,
+    ordenarNumerosAsc,
+    sumatorioConReduce,
+    agruparPorCampoReduce,
+    agruparPorCampoObjectGroupBy,
+    encadenarOperacionesSinAnidar,
+    objetoNombreMayuscConFlechaAnidada,
+    establecerValorMismaReferencia,
 } = require('../homework.js');
 
 
@@ -382,4 +403,164 @@ describe('map(arr, cb)', function() {
 		});
 		expect(squares).toEqual([1, 4, 9, 16, 25]);
 	});
+});
+
+describe('resultadoTipoFuncionExpresadaVar', function() {
+  it('debe ser typeof correcto ante hoisting var + expresión', function() {
+    expect(resultadoTipoFuncionExpresadaVar).toBe('undefined');
+  });
+});
+
+describe('duplicarConFlecha', function() {
+  it('debe ser función flecha que duplica número', function() {
+    expect(typeof duplicarConFlecha).toBe('function');
+    expect(duplicarConFlecha(6)).toBe(12);
+  });
+});
+
+describe('sumarMedianteExpresionNombrada', function() {
+  it('suma con expresión de función nominada internamente', function() {
+    expect(sumarMedianteExpresionNombrada(-1, 4)).toBe(3);
+  });
+});
+
+describe('filter(arr, cb)', function() {
+  it('nuevo array con elementos donde cb fue truthy', function() {
+    const out = filter([1, 2, 3, 4, 5], function(n) { return n % 2 === 0; });
+    expect(out).toEqual([2, 4]);
+  });
+});
+
+describe('sacarUltimoConPop', function() {
+  it('devuelve el último y muta el arreglo', function() {
+    const a = ['a', 'b', 'c'];
+    expect(sacarUltimoConPop(a)).toBe('c');
+    expect(a).toEqual(['a', 'b']);
+  });
+});
+
+describe('sacarPrimeroConShift', function() {
+  it('devuelve el primero y muta el arreglo', function() {
+    const a = [10, 20];
+    expect(sacarPrimeroConShift(a)).toBe(10);
+    expect(a).toEqual([20]);
+  });
+});
+
+describe('unirConSeparador', function() {
+  it('usa join sobre copia estable', function() {
+    const partes = ['x', 'y', 'z'];
+    expect(unirConSeparador(partes, '|')).toBe('x|y|z');
+    expect(partes).toEqual(['x', 'y', 'z']);
+  });
+});
+
+describe('indicePrimero / indiceUltimo / existeConIncludes', function() {
+  const base = ['a', 'b', 'a', 'c'];
+  it('indexOf correcto', function() {
+    expect(indicePrimero(base, 'a')).toBe(0);
+    expect(indicePrimero(base, 'z')).toBe(-1);
+  });
+  it('lastIndexOf correcto', function() {
+    expect(indiceUltimo(base, 'a')).toBe(2);
+    expect(indiceUltimo(base, 'b')).toBe(1);
+  });
+  it('includes correcto', function() {
+    expect(existeConIncludes(base, 'c')).toBe(true);
+    expect(existeConIncludes(base, 'x')).toBe(false);
+  });
+});
+
+describe('subArregloCopia', function() {
+  it('slice no altera fuente', function() {
+    const src = [0, 1, 2, 3];
+    expect(subArregloCopia(src, 1, 3)).toEqual([1, 2]);
+    expect(src).toEqual([0, 1, 2, 3]);
+  });
+});
+
+describe('pegarDosArreglos', function() {
+  it('concat sin mutar entradas', function() {
+    const a = [1];
+    const b = [2, 3];
+    expect(pegarDosArreglos(a, b)).toEqual([1, 2, 3]);
+    expect(a).toEqual([1]);
+    expect(b).toEqual([2, 3]);
+  });
+});
+
+describe('aplicarSpliceDesde', function() {
+  it('splice mutable con inserción', function() {
+    const data = [10, 20, 30];
+    const mismo = aplicarSpliceDesde(data, 1, 2, 99);
+    expect(mismo).toBe(data);
+    expect(data).toEqual([10, 99]);
+  });
+});
+
+describe('invertirEnLugar', function() {
+  it('reverse mutante', function() {
+    const w = ['uno', 'dos'];
+    expect(invertirEnLugar(w)).toBe(w);
+    expect(w).toEqual(['dos', 'uno']);
+  });
+});
+
+describe('ordenarNumerosAsc', function() {
+  it('orden numérico comparando valores', function() {
+    const n = [9, -1, 3, 0];
+    ordenarNumerosAsc(n);
+    expect(n).toEqual([-1, 0, 3, 9]);
+  });
+});
+
+describe('sumatorioConReduce', function() {
+  it('acumula con reduce', function() {
+    expect(sumatorioConReduce([5, -2, 1], 0)).toBe(4);
+    expect(sumatorioConReduce([], 100)).toBe(100);
+  });
+});
+
+describe('agruparPorCampoReduce', function() {
+  it('produce mapa campo -> elementos', function() {
+    const list = [{ id: 1, zona: 'A' }, { id: 2, zona: 'B' }, { id: 3, zona: 'A' }];
+    const g = agruparPorCampoReduce(list, 'zona');
+    expect(Object.keys(g).sort()).toEqual(['A', 'B']);
+    expect(g.A.length).toBe(2);
+    expect(g.B[0].id).toBe(2);
+  });
+});
+
+describe('agruparPorCampoObjectGroupBy', function() {
+  it('Object.groupBy igual estructura', function() {
+    const datos = [{ t: 'x', v: 1 }, { t: 'y', v: 2 }, { t: 'x', v: 3 }];
+    const h = agruparPorCampoObjectGroupBy(datos, 't');
+    expect(h.x.map(function(i) { return i.v; })).toEqual([1, 3]);
+    expect(h.y.length).toBe(1);
+  });
+});
+
+describe('encadenarOperacionesSinAnidar', function() {
+  it('pipe síncrono con array de callbacks', function() {
+    const res = encadenarOperacionesSinAnidar(5, [
+      function(n) { return n + 10; },
+      function(n) { return n / 5; },
+    ]);
+    expect(res).toBe(3);
+  });
+});
+
+describe('objetoNombreMayuscConFlechaAnidada', function() {
+  it('flecha anidada enlaza el this del método contenedor', function() {
+    expect(objetoNombreMayuscConFlechaAnidada('ana').enMayuscMedianteFlecha()).toBe('ANA');
+  });
+});
+
+describe('establecerValorMismaReferencia', function() {
+  it('muta objeto sin nueva referencia', function() {
+    const base = {};
+    const ret = establecerValorMismaReferencia(base, 'clave', 'ok');
+    expect(ret).toBe(base);
+    expect(base.clave).toBe('ok');
+  });
 });

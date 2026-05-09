@@ -1,5 +1,15 @@
 // No cambies los nombres de las funciones.
 
+// --- Temario ampliado: constantes ---
+// ¿Qué string devuelve typeof en cada línea, en orden hipotético?
+// Antes del `=` (pero después de hoist de `var`): console.log(typeof f);
+// var f = function() { return 1; };
+const resultadoTipoFuncionExpresadaVar = null;
+
+// Reemplaza null por una función flecha asignada a identificador (sin palabra function):
+// ejemplo de forma: identificador = (num) => num * ...
+let duplicarConFlecha = null;
+
 function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un array
   // Tu código:
@@ -205,10 +215,115 @@ function map(array, cb) {
   // El nuevo array debe tener la misma longitud que el array del argumento
 }
 
+function filter(array, cb) {
+  // Replica el comportamiento de Array.prototype.filter: nuevo array sólo con valores donde cb devolvió verdadero/truthy
+  // Podés hacerlo con bucle sin usar el método nativo `.filter`
+  // Tu código:
+}
+
+// --- Temario ampliado: extremos pop/shift y APIs de búsqueda/unión/recorte ---
+
+function sacarUltimoConPop(arreglo) {
+  // Quitá el último elemento con `.pop()`, devolvé ese elemento mutando `arreglo`
+  // Tu código:
+}
+
+function sacarPrimeroConShift(arreglo) {
+  // Quitá el primero con `.shift()`, devolvé ese elemento mutando `arreglo`
+  // Tu código:
+}
+
+function unirConSeparador(elementos, separador) {
+  // `.join(separador)` sobre el array pasado por referencia sin mutarlo
+  // Tu código:
+}
+
+function indicePrimero(arreglo, item) {
+  // `.indexOf`
+  // Tu código:
+}
+
+function indiceUltimo(arreglo, item) {
+  // `.lastIndexOf`
+  // Tu código:
+}
+
+function existeConIncludes(arreglo, item) {
+  // `.includes`
+  // Tu código:
+}
+
+function subArregloCopia(origen, inicio, fin) {
+  // `.slice` — no muta el original; devolvé una copia de la ventana sin incluir índice `fin`
+  // Tu código:
+}
+
+function pegarDosArreglos(arregloA, arregloB) {
+  // `.concat`: devolvé un nuevo arreglo con todos los elementos de A y después B sin mutar A ni B
+  // Tu código:
+}
+
+function aplicarSpliceDesde(arreglo, desde, borrarCantidad, ...insertarItems) {
+  // `.splice` muta `arreglo` desde el índice `desde`, borra `borrarCantidad` elementos, insertá optional items
+  // Devolvé el mismo array arreglo (referencia) tras la operación
+  // Tu código:
+}
+
+// --- Reverse / Sort (mutaciones) ---
+function invertirEnLugar(arreglo) {
+  // `.reverse` en el mismo arreglo; devolvé el array (referencia)
+  // Tu código:
+}
+
+function ordenarNumerosAsc(arreglo) {
+  // `.sort` comparando número (a, b) => a - b; mutante; devolvé la referencia `arreglo`
+  // Tu código:
+}
+
+function sumatorioConReduce(numeros, inicial = 0) {
+  // Suma usando únicamente `.reduce(...)`
+  // Tu código:
+}
+
+function agruparPorCampoReduce(listaObjetos, nombreCampo) {
+  // Usá sólo `.reduce`: devolvé objeto cuyas claves son valores de esa propiedad y valores arrays de elementos
+  // Tu código:
+}
+
+function agruparPorCampoObjectGroupBy(listaObjetos, nombreCampo) {
+  // Usá Object.groupBy (requiere Node 22+ según este repo). Función clasificadora: (item) => item[nombreCampo]
+  // Tu código:
+}
+
+function encadenarOperacionesSinAnidar(valorInicial, funcionesTransform) {
+  // `funcionesTransform` es un array de funciones síncronas (f1,f2,...).
+  // Ejecutalas en orden solo con bucle/for (sin anidar llamadas dentro de callbacks).
+  // Tu código:
+}
+
+function objetoNombreMayuscConFlechaAnidada(nombre) {
+  // Devolvé `{ nombre }` con método `enMayuscMedianteFlecha()` (function regular) dentro del cual declares una función flecha
+  // que usa el `this` léxico del método y devuelve `nombre` en MAYÚSCULAS.
+  // Tu código:
+}
+
+function establecerValorMismaReferencia(objetoConstanteRef, propiedadString, nuevoValor) {
+  // objetoConstanteRef[propiedadString] = nuevoValor; mismo objeto
+  // Tu código:
+}
+
+const sumarMedianteExpresionNombrada = function nombradoInternamente(a, b) {
+  // Función mediante expresión con nombre interno (no uses `function sumarDeclarada(...) {}` declarada como statement suelto)
+  // Tu código:
+};
+
 // No modificar nada debajo de esta línea
 // --------------------------------
 
 module.exports = {
+  resultadoTipoFuncionExpresadaVar,
+  duplicarConFlecha,
+  sumarMedianteExpresionNombrada,
   devolverPrimerElemento,
   devolverUltimoElemento,
   obtenerLargoDelArray,
@@ -239,4 +354,22 @@ module.exports = {
   sumarArray,
   forEach,
   map,
+  filter,
+  sacarUltimoConPop,
+  sacarPrimeroConShift,
+  unirConSeparador,
+  indicePrimero,
+  indiceUltimo,
+  existeConIncludes,
+  subArregloCopia,
+  pegarDosArreglos,
+  aplicarSpliceDesde,
+  invertirEnLugar,
+  ordenarNumerosAsc,
+  sumatorioConReduce,
+  agruparPorCampoReduce,
+  agruparPorCampoObjectGroupBy,
+  encadenarOperacionesSinAnidar,
+  objetoNombreMayuscConFlechaAnidada,
+  establecerValorMismaReferencia,
 };
