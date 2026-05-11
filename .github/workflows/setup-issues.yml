@@ -53,18 +53,6 @@ jobs:
                   "## Nota",
                   "Este criterio se vincula al workflow `classroom.yml`."
                 ].join("\n")
-              },
-              {
-                title: "[Revisión docente] Criterios no automaticos",
-                body: [
-                  "## Objetivo",
-                  "Completar correccion manual complementaria.",
-                  "",
-                  "## Checklist sugerida",
-                  "- [ ] Claridad y legibilidad del codigo.",
-                  "- [ ] Uso apropiado de arrays, objetos, callbacks y metodos de orden superior.",
-                  "- [ ] Coherencia entre solucion implementada y consigna de cada ejercicio."
-                ].join("\n")
               }
             ];
 
