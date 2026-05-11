@@ -2,38 +2,45 @@
 
 En esta lección cubriremos:
 
-* Introducción a los arrays
-* Buscles `for` con arrays
-* Introducción a los Objetos
-* Métodos
-* Bucles `for…in`
-* Palabra clave `this`
-* Objetos en Javascript
-* Callbacks
-* Más métodos de Arrays (**`filter`**, búsqueda, **`slice`/`splice`**, **`reverse`/`sort`**, flechas breves, **`Object.groupBy`** — ver secciones al final del capítulo posterior a **`.map`**)
+- Introducción a los arrays
+- Buscles `for` con arrays
+- Introducción a los Objetos
+- Métodos
+- Bucles `for…in`
+- Palabra clave `this`
+- Objetos en Javascript
+- Callbacks
+- Más métodos de Arrays (**`filter`**, búsqueda, **`slice`/`splice`**, **`reverse`/`sort`**, flechas breves, **`Object.groupBy`** — ver secciones al final del capítulo posterior a **`.map`**)
+
+## Herramientas de editor (ESLint / Prettier / VS Code)
+
+En la raiz estan `.vscode/`, `.eslintrc.json`, `.prettierrc.js`, `.prettierignore` y `.env.example`. La carpeta `Configuration-Files/backend-nodejs/` conserva el kit original (incluye un `package.json` de ejemplo con Express/Mongo); **este repo solo usa Jest** para la consigna.
+
+- `npm run lint` / `npm run lint:fix`
+- `npm run format` / `npm run format:check`
 
 ## Mapa de práctica (`homework.js`)
 
 Requisito de runtime: **Node.js 22+** (necesario para `Object.groupBy` en `agruparPorCampoObjectGroupBy`; ver `engines` en `package.json`). Ejecutá `npm install` y `npm test`.
 
-| Bloque temático | Funciones / constantes destacadas |
-|-----------------|-----------------------------------|
-| Objeto literal + `this` | `crearGato`, `invocarMetodo`, `agregarMetodoCalculoDescuento`, nuevos `objetoNombreMayuscConFlechaAnidada`, `establecerValorMismaReferencia` |
-| Mutabilidad objeto + borrados | `agregarPropiedad`, `eliminarPropiedad`, `establecerValorMismaReferencia` |
-| Declaradas vs expresadas + hoisting (`typeof`) | `resultadoTipoFuncionExpresadaVar`, `sumarMedianteExpresionNombrada` |
-| Flechas (`=>`) | `duplicarConFlecha` |
-| Callbacks / encadenamiento (sincrónico) | `invocarCallback`, `sumarArray`, `encadenarOperacionesSinAnidar` |
-| Arrays básicos + mutación puntual | Ejercicios iniciales; `invertirEnLugar`, `ordenarNumerosAsc` |
-| `.push` / `.pop` / `.shift` / `.unshift` | `agregarItemAlFinalDelArray`, `agregarItemAlComienzoDelArray`, `sacarUltimoConPop`, `sacarPrimeroConShift` |
+| Bloque temático                                   | Funciones / constantes destacadas                                                                                                                         |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Objeto literal + `this`                           | `crearGato`, `invocarMetodo`, `agregarMetodoCalculoDescuento`, nuevos `objetoNombreMayuscConFlechaAnidada`, `establecerValorMismaReferencia`              |
+| Mutabilidad objeto + borrados                     | `agregarPropiedad`, `eliminarPropiedad`, `establecerValorMismaReferencia`                                                                                 |
+| Declaradas vs expresadas + hoisting (`typeof`)    | `resultadoTipoFuncionExpresadaVar`, `sumarMedianteExpresionNombrada`                                                                                      |
+| Flechas (`=>`)                                    | `duplicarConFlecha`                                                                                                                                       |
+| Callbacks / encadenamiento (sincrónico)           | `invocarCallback`, `sumarArray`, `encadenarOperacionesSinAnidar`                                                                                          |
+| Arrays básicos + mutación puntual                 | Ejercicios iniciales; `invertirEnLugar`, `ordenarNumerosAsc`                                                                                              |
+| `.push` / `.pop` / `.shift` / `.unshift`          | `agregarItemAlFinalDelArray`, `agregarItemAlComienzoDelArray`, `sacarUltimoConPop`, `sacarPrimeroConShift`                                                |
 | Búsqueda / `join` / `slice` / `concat` / `splice` | `dePalabrasAFrase`, `unirConSeparador`, `indicePrimero`, `indiceUltimo`, `existeConIncludes`, `subArregloCopia`, `pegarDosArreglos`, `aplicarSpliceDesde` |
-| `reverse` / `sort` mutantes | `invertirEnLugar`, `ordenarNumerosAsc` |
-| `forEach` / `map` / `filter` (reimplementaciones) | `forEach`, `map`, `filter` |
-| `reduce` / `Object.groupBy` | `sumatorioConReduce`, `agruparPorCampoReduce`, `agruparPorCampoObjectGroupBy` |
-| Arrays de objetos | `pasarUsuarioAPremium`, `sumarLikesDeUsuario` |
+| `reverse` / `sort` mutantes                       | `invertirEnLugar`, `ordenarNumerosAsc`                                                                                                                    |
+| `forEach` / `map` / `filter` (reimplementaciones) | `forEach`, `map`, `filter`                                                                                                                                |
+| `reduce` / `Object.groupBy`                       | `sumatorioConReduce`, `agruparPorCampoReduce`, `agruparPorCampoObjectGroupBy`                                                                             |
+| Arrays de objetos                                 | `pasarUsuarioAPremium`, `sumarLikesDeUsuario`                                                                                                             |
 
 Consultá también **[MAPA_TEMARIO.md](MAPA_TEMARIO.md)** para el cierre de cobertura frente al temario oficial.
 
-La teoría que complementa todas las APIs del **`homework.js`** aparece desarrollada **al final del capítulo *Más métodos de Arrays*** (bloques después de **`.map`**: búsqueda, `slice`/`splice`, `reverse`/`sort`, **`.filter`**, flechas/expresiones e **`Object.groupBy`**).
+La teoría que complementa todas las APIs del **`homework.js`** aparece desarrollada **al final del capítulo _Más métodos de Arrays_** (bloques después de **`.map`**: búsqueda, `slice`/`splice`, `reverse`/`sort`, **`.filter`**, flechas/expresiones e **`Object.groupBy`**).
 
 ### Archivos del ejercicio y tests
 
@@ -61,7 +68,7 @@ Al igual que el tipo de dato _String_ tiene un método incorporado `.length`, ta
 ```javascript
 const nombresEstudiantes = ['Martin', 'Antonio', 'Sara', 'Samuel'];
 
-console.log(nombresEstudiantes.length);  // 4
+console.log(nombresEstudiantes.length); // 4
 ```
 
 ### Acceso a elementos en una matriz
@@ -78,7 +85,7 @@ Para acceder al elemento, escribiremos el nombre o la variable de matriz, seguid
 ```javascript
 const nombresEstudiantes = ['Martin', 'Antonio', 'Sara', 'Samuel'];
 
-console.log(nombresEstudiantes[1]);  // 'Antonio'
+console.log(nombresEstudiantes[1]); // 'Antonio'
 ```
 
 Para acceder dinámicamente al último elemento de la matriz, utilizaremos el método `.length`. En nuestra matriz `nombresEstudiantes`, la longitud es 4. Sabemos que el primer elemento siempre será 0, y cada elemento posterior se desplaza sobre un número. Entonces, en nuestro ejemplo, el último elemento tiene un índice de 3. Usando nuestra propiedad de longitud mostraremos cómo se hace cuando no sabemos el número de elementos en una matriz:
@@ -98,8 +105,9 @@ const nombresEstudiantes = ['Martin', 'Antonio', 'Sara', 'Samuel'];
 
 nombresEstudiantes[0] = 'Jorge';
 
-console.log(nombresEstudiantes);  // ['Jorge', 'Antonio', 'Sara', 'Samuel']
+console.log(nombresEstudiantes); // ['Jorge', 'Antonio', 'Sara', 'Samuel']
 ```
+
 ### `.push` y `.pop`
 
 Otros dos métodos de matriz incorporados muy útiles son `.push` y` .pop`. Estos métodos se refieren a la adición y eliminación de elementos de la matriz después de su declaración inicial.
@@ -111,7 +119,7 @@ const nombresEstudiantes = ['Martin', 'Antonio', 'Sara', 'Samuel'];
 
 nombresEstudiantes.push('Patricia');
 
-console.log(nombresEstudiantes);  // ['Martin', 'Antonio', 'Sara', 'Samuel', 'Patricia']
+console.log(nombresEstudiantes); // ['Martin', 'Antonio', 'Sara', 'Samuel', 'Patricia']
 ```
 
 `.pop` elimina el último elemento de la matriz, disminuyendo la longitud en 1. `.pop` devuelve el elemento "reventado" (_popped_).
@@ -121,7 +129,7 @@ const nombresEstudiantes = ['Martin', 'Antonio', 'Sara', 'Samuel'];
 
 nombresEstudiantes.pop();
 
-console.log(nombresEstudiantes);  // ['Martin', 'Antonio', 'Sara']
+console.log(nombresEstudiantes); // ['Martin', 'Antonio', 'Sara']
 ```
 
 ### `.unshift` y `.shift`
@@ -133,11 +141,11 @@ const nombresEstudiantes = ['Martin', 'Antonio', 'Sara', 'Samuel'];
 
 nombresEstudiantes.unshift('Leo');
 
-console.log(nombresEstudiantes);  // ['Leo', 'Martin', 'Antonio', 'Sara', 'Samuel']
+console.log(nombresEstudiantes); // ['Leo', 'Martin', 'Antonio', 'Sara', 'Samuel']
 
 nombresEstudiantes.shift();
 
-console.log(nombresEstudiantes);  // ['Martin', 'Antonio', 'Sara', 'Samuel']
+console.log(nombresEstudiantes); // ['Martin', 'Antonio', 'Sara', 'Samuel']
 ```
 
 ### Notas sobre las matrices
@@ -152,7 +160,7 @@ La mayoría de las veces, los bucles for se utilizan para iterar sobre todos los
 const nombresEstudiantes = ['Martin', 'Antonio', 'Sara', 'Samuel'];
 
 for (let i = 0; i < nombresEstudiantes.length; i++) {
-    console.log(nombresEstudiantes[i]);
+  console.log(nombresEstudiantes[i]);
 }
 
 // 'Martin'
@@ -167,16 +175,16 @@ Cuando pasamos argumentos a una función, están contenidos en una estructura de
 
 ```javascript
 function sumarTodosLosNumeros() {
-    let sum = 0;
+  let sum = 0;
 
-    for (let i = 0; i < arguments.length; i++) {
-        sum = sum + arguments[i];
-    }
+  for (let i = 0; i < arguments.length; i++) {
+    sum = sum + arguments[i];
+  }
 
-    return sum;
+  return sum;
 }
 
-sumarTodosLosNumeros(2, 5, 3, 4, 7, 9, 1, 0, 7, 7, 7);  // 52
+sumarTodosLosNumeros(2, 5, 3, 4, 7, 9, 1, 0, 7, 7, 7); // 52
 ```
 
 ## Introducción a los Objetos
@@ -193,10 +201,10 @@ A diferencia de las matrices que tienen elementos valorados en índices, los obj
 
 ```javascript
 const usuario = {
-    username: 'juan.perez',
-    password: 'loremipsumpwd123',
-    lovesJavascript: true,
-    favoriteNumber: 42
+  username: 'juan.perez',
+  password: 'loremipsumpwd123',
+  lovesJavascript: true,
+  favoriteNumber: 42,
 };
 ```
 
@@ -208,7 +216,7 @@ Con la notación de puntos podemos llamar al nombre del objeto, un punto y el no
 
 ```javascript
 user.lovesJavascript; // true
-user.username;        // juan.perez
+user.username; // juan.perez
 ```
 
 La notación de corchetes es como llamar a un elemento en una matriz, aunque con corchetes debemos usar una cadena o número, o una variable que apunte a una cadena o número. Se puede llamar a cada clave envolviéndola con comillas:
@@ -216,8 +224,8 @@ La notación de corchetes es como llamar a un elemento en una matriz, aunque con
 ```javascript
 const passString = 'password';
 user['lovesJavascript']; // true
-user['username'];        // juan.perez
-user[passString];        // loremipsumpwd123
+user['username']; // juan.perez
+user[passString]; // loremipsumpwd123
 ```
 
 Generalmente, verás que los corchetes casi siempre se usan con variables.
@@ -228,8 +236,8 @@ Asignar valores funciona igual que acceder a ellos. Podemos asignarlos, cuando c
 
 ```javascript
 const nuevoUsuario = {
-    esNuevo: true
-}
+  esNuevo: true,
+};
 
 const loveJSString = 'lovesJavascript';
 
@@ -244,7 +252,7 @@ Si queremos eliminar una propiedad, podemos hacerlo usando la palabra clave `del
 
 ```javascript
 const nuevoObjeto = {
-    eliminarEstaPropiedad: true
+  eliminarEstaPropiedad: true,
 };
 
 delete nuevoObjeto.eliminarEstaPropiedad;
@@ -258,10 +266,10 @@ En los objetos, los valores se pueden establecer en funciones. Las funciones gua
 
 ```javascript
 const nuevoObjeto = {
-    decirHola: function() {
-        console.log('Hola a todo el mundo!');
-    }
-}
+  decirHola: function () {
+    console.log('Hola a todo el mundo!');
+  },
+};
 
 nuevoObjeto.decirHola(); //Hola a todo el mundo!
 ```
@@ -272,15 +280,15 @@ A veces queremos iterar sobre cada par clave-valor en nuestro objeto. Con las ma
 
 ```javascript
 const usuario = {
-    username: 'juan.perez',
-    password: 'loremipsumpwd123',
-    lovesJavascript: true,
-    favoriteNumber: 42
+  username: 'juan.perez',
+  password: 'loremipsumpwd123',
+  lovesJavascript: true,
+  favoriteNumber: 42,
 };
 
-for (let clave in usuario){
-    console.log(clave);
-    console.log(usuario[clave]);
+for (let clave in usuario) {
+  console.log(clave);
+  console.log(usuario[clave]);
 }
 
 // username
@@ -292,19 +300,20 @@ for (let clave in usuario){
 // favoriteNumber
 // 42
 ```
+
 ## La palabra clave 'this'
 
 Los objetos tienen una palabra clave autorreferencial que se puede aplicar en cada objeto llamado `this`. Cuando se llama dentro de un objeto, se refiere a ese mismo objeto. `this` puede usarse para acceder a otras claves en el mismo objeto, y es especialmente útil en métodos:
 
 ```javascript
 const usuario = {
-    username: 'juan.perez',
-    password: 'loremipsumpwd123',
-    lovesJavascript: true,
-    favoriteNumber: 42,
-    decirHola: function(){
-        console.log( this.username + ' manda saludos!');
-    }
+  username: 'juan.perez',
+  password: 'loremipsumpwd123',
+  lovesJavascript: true,
+  favoriteNumber: 42,
+  decirHola: function () {
+    console.log(this.username + ' manda saludos!');
+  },
 };
 
 usuario.decirHola(); // 'juan.perez manda saludos!'
@@ -322,15 +331,15 @@ Un concepto muy importante en Javascript es la capacidad de pasar una función c
 
 ```javascript
 function decirHolaAlUsuario(usuario) {
-    return 'Hola ' + usuario + '!';
+  return 'Hola ' + usuario + '!';
 }
 
 function decirAdiosAlUsuario(usuario) {
-    return 'Adiós ' + usuario + '!';
+  return 'Adiós ' + usuario + '!';
 }
 
 function crearSaludo(usuario, cb) {
-    return cb(usuario);
+  return cb(usuario);
 }
 
 crearSaludo('Dan', decirHolaAlUsuario); // 'Hello Dan!'
@@ -349,14 +358,14 @@ Ya conocemos y utilizamos métodos de matriz, `.push`,` .pop`, `.shift`,` .unshi
 const autos = ['Ford', 'Chevrolet', 'Toyota', 'Tesla'];
 
 // Podemos escribir el callback en los paréntesis como una función anónima
-autos.forEach(function(elemento, indice) {
-    console.log(elemento);
+autos.forEach(function (elemento, indice) {
+  console.log(elemento);
 });
 
 // O podemos crear una instancia de una función para usarla como callback.
 // Además, no necesitamos usar el argumento de índice, si no lo necesitas, no dudes en omitirlo.
 function mostrarNombres(elemento) {
-    console.log(elemento);
+  console.log(elemento);
 }
 
 // And call that function in the forEach parentheses
@@ -368,32 +377,33 @@ autos.forEach(mostrarNombres);
 `.reduce` ejecutará un bucle en nuestra matriz con la intención de reducir cada elemento en un elemento que se devuelve. Como es el primer argumento, acepta un callback que toma dos argumentos, primero un 'acumulador' (el resultado del método de reducción hasta ahora), y el segundo es el elemento en el que se encuentra actualmente. El callback debe contener siempre una declaración de devolución ("return"). `.reduce` también toma un segundo argumento opcional, que sería el acumulador de arranque ("starting accumulator"). Si no se suministra el acumulador de arranque, la reducción comenzará en el primer elemento de la matriz. `.reduce` siempre devolverá el acumulador cuando termine de recorrer los elementos.
 
 ```javascript
-const numeros = [ 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const palabras = [ 'Hola,', 'mi', 'nombre', 'es', 'Martin'];
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const palabras = ['Hola,', 'mi', 'nombre', 'es', 'Martin'];
 
 // Podemos escribir la función anónima directamente en los paréntesis de .reduce
 // Si omitimos el elemento inicial, siempre comenzará en el primer elemento.
-const suma = numeros.reduce(function(acc, elemento){
-    return acc + elemento;
+const suma = numeros.reduce(function (acc, elemento) {
+  return acc + elemento;
 });
 
 // Podemos escribir una función fuera de los parents de .reduce (para usar varias veces más tarde)
 function multiplicarDosNumeros(a, b) {
-    return a * b;
+  return a * b;
 }
 
 const productos = numeros.reduce(multiplicarDosNumeros);
 
 // .reduce funciona en cualquier tipo de datos.
 // En este ejemplo configuramos un acumulador de arranque
-const frases = palabras.reduce(function(acc, elemento) {
-    return acc + ' ' + elemento;
+const frases = palabras.reduce(function (acc, elemento) {
+  return acc + ' ' + elemento;
 }, 'Frase completa:');
 
 console.log(suma); // 45
 console.log(productos); // 362880
 console.log(frases); // "Frase completa: Hola, mi nombre es Martin"
 ```
+
 ### `.map`
 
 `.map` se usa cuando queremos cambiar cada elemento de una matriz de la misma manera. `.map` toma una devolución de llamada como único argumento. Al igual que el método `.forEach`, el callback tiene el elemento y el índice de argumentos opcionales. A diferencia de `.reduce`,` .map` devolverá toda la matriz.
@@ -402,14 +412,14 @@ console.log(frases); // "Frase completa: Hola, mi nombre es Martin"
 const numeros = [2, 3, 4, 5];
 
 function multiplicarPorTres(elemento) {
-    return elemento * 3;
+  return elemento * 3;
 }
 
-const doble = numeros.map(function(elemento) {
-    return elemento * 2;
+const doble = numeros.map(function (elemento) {
+  return elemento * 2;
 });
 
-const triple = numeros.map(multiplicarPorTres)
+const triple = numeros.map(multiplicarPorTres);
 
 console.log(doble); // [ 4, 6, 8, 10 ]
 console.log(triple); // [ 6, 9, 12, 15 ]
@@ -440,10 +450,10 @@ Si el callback devolviera la condición equivocada, podrías obtener un array va
 
 ```javascript
 const cosas = ['a', 'b', 'c', 'a'];
-cosas.includes('x');           // false
-cosas.indexOf('a');          // 0
-cosas.lastIndexOf('a');       // 3
-['uno', 'dos'].join(' → ');  // 'uno → dos'
+cosas.includes('x'); // false
+cosas.indexOf('a'); // 0
+cosas.lastIndexOf('a'); // 3
+['uno', 'dos'].join(' → '); // 'uno → dos'
 ```
 
 ### Copiar un tramo sin mutar: `.slice`; unir arrays: `.concat`
@@ -452,7 +462,7 @@ cosas.lastIndexOf('a');       // 3
 
 ```javascript
 const base = ['x', 'y', 'z', 'w'];
-const trozo = base.slice(1, 3);   // ['y', 'z'] — base intacto
+const trozo = base.slice(1, 3); // ['y', 'z'] — base intacto
 ```
 
 - **`.concat(otroArray)`**: devuelve un **nuevo** array con los elementos de ambos concatenados sin mutar los originales (también acepta elementos sueltos separados por coma si hace falta).
@@ -491,10 +501,10 @@ Versión corta (**flechas** más abajo): **`arr.sort((a, b) => a - b)`**.
 Una **función flecha** es sintaxis corta cuando el cuerpo es una sola expresión o necesitamos heredar **`this`** del contexto léxico donde se declaró:
 
 ```javascript
-const duplicar = (num) => num * 2;   // retorno implícito si el cuerpo es una sola expresión
+const duplicar = (num) => num * 2; // retorno implícito si el cuerpo es una sola expresión
 
 const mitad = (n) => {
-  return n / 2;                       // con llaves necesitás `return` explícito
+  return n / 2; // con llaves necesitás `return` explícito
 };
 ```
 
@@ -539,18 +549,18 @@ En lugar de **f(f(f(x)))`** escrito a mano, podés recolectar todas las funcione
 
 ## Recursos adicionales
 
-* [Understanding Callback Functions and How to Use Them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
-* [Eloquent Javascript: Higher Order Functions](https://eloquentjavascript.net/05_higher_order.html)
-* [MDN: Callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
-* [MDN: Array methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [MDN: Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [MDN: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
-* [MDN: for...in Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
-* [MDN: Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [MDN: for Loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
-* [MDN (es): `.filter`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-* [MDN (es): `.join`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
-* [MDN (es): `.slice`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
-* [MDN (es): `.splice`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
-* [MDN (es): función flecha](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-* [MDN (es): `Object.groupBy`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy)
+- [Understanding Callback Functions and How to Use Them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
+- [Eloquent Javascript: Higher Order Functions](https://eloquentjavascript.net/05_higher_order.html)
+- [MDN: Callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
+- [MDN: Array methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [MDN: Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+- [MDN: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [MDN: for...in Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+- [MDN: Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [MDN: for Loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+- [MDN (es): `.filter`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+- [MDN (es): `.join`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+- [MDN (es): `.slice`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+- [MDN (es): `.splice`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+- [MDN (es): función flecha](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [MDN (es): `Object.groupBy`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy)

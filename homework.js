@@ -79,8 +79,8 @@ function numeroMasGrande(numeros) {
 
 function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
-  // Si no se pasan argumentos devuelve 0
-  // Si se pasa un argumento, simplemente devuélvelo
+  // Si no se pasan argumentos devuelve 0
+  // Si se pasa un argumento, simplemente devuélvelo
   // Tu código:
 }
 
@@ -93,7 +93,6 @@ function crearGato(nombre, edad) {
   // Devuelve el objeto
   // Tu código:
 }
-
 
 function agregarPropiedad(objeto, property) {
   // Agrega una propiedad al objeto (argumento "objeto") con el valor `null`
@@ -113,7 +112,6 @@ function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
-
 }
 
 function eliminarPropiedad(objeto, propiedad) {
@@ -126,7 +124,6 @@ function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
-
 }
 
 function tieneEmail(usuario) {
@@ -134,7 +131,6 @@ function tieneEmail(usuario) {
   // De lo contratio, devuelve "false"
   // Tu código:
 }
-
 
 function tienePropiedad(objeto, propiedad) {
   // Devuelve "true" si el objeto tiene el valor del argumento "propiedad"
